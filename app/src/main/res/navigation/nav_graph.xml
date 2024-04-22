@@ -2,4 +2,162 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph" />
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.kidsnavigation.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_learnFragment"
+            app:destination="@id/learnFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_parentFragment"
+            app:destination="@id/parentFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_medicalFragment"
+            app:destination="@id/medicalFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_socialFragment"
+            app:destination="@id/socialFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/learnFragment"
+        android:name="com.example.kidsnavigation.LearnFragment"
+        android:label="fragment_learn"
+        tools:layout="@layout/fragment_learn" >
+        <action
+            android:id="@+id/action_learnFragment_to_evaluationFragment"
+            app:destination="@id/evaluationFragment" />
+        <action
+            android:id="@+id/action_learnFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_learnFragment_to_practiceFragment"
+            app:destination="@id/practiceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/parentFragment"
+        android:name="com.example.kidsnavigation.ParentFragment"
+        android:label="fragment_parent"
+        tools:layout="@layout/fragment_parent" >
+        <action
+            android:id="@+id/action_parentFragment_to_formularFragment"
+            app:destination="@id/formularFragment" />
+        <action
+            android:id="@+id/action_parentFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.kidsnavigation.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/medicalFragment"
+        android:name="com.example.kidsnavigation.MedicalFragment"
+        android:label="fragment_medical"
+        tools:layout="@layout/fragment_medical" >
+        <action
+            android:id="@+id/action_medicalFragment_to_medikationFragment"
+            app:destination="@id/medikationFragment" />
+        <action
+            android:id="@+id/action_medicalFragment_to_messwertErfassungFragment"
+            app:destination="@id/messwertErfassungFragment" />
+        <action
+            android:id="@+id/action_medicalFragment_to_messwertAuswertungFragment"
+            app:destination="@id/messwertAuswertungFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/socialFragment"
+        android:name="com.example.kidsnavigation.SocialFragment"
+        android:label="fragment_social"
+        tools:layout="@layout/fragment_social" >
+        <action
+            android:id="@+id/action_socialFragment_to_freizeitFragment"
+            app:destination="@id/freizeitFragment" />
+        <action
+            android:id="@+id/action_socialFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_socialFragment_to_hilfeGruppenFragment"
+            app:destination="@id/hilfeGruppenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/practiceFragment"
+        android:name="com.example.kidsnavigation.PracticeFragment"
+        android:label="fragment_practice"
+        tools:layout="@layout/fragment_practice" />
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.example.kidsnavigation.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" />
+    <fragment
+        android:id="@+id/evaluationFragment"
+        android:name="com.example.kidsnavigation.EvaluationFragment"
+        android:label="fragment_evaluation"
+        tools:layout="@layout/fragment_evaluation" />
+    <fragment
+        android:id="@+id/formularFragment"
+        android:name="com.example.kidsnavigation.FormularFragment"
+        android:label="fragment_formular"
+        tools:layout="@layout/fragment_formular" />
+    <fragment
+        android:id="@+id/freizeitFragment"
+        android:name="com.example.kidsnavigation.FreizeitFragment"
+        android:label="fragment_freizeit"
+        tools:layout="@layout/fragment_freizeit" />
+    <fragment
+        android:id="@+id/kalenderFragment"
+        android:name="com.example.kidsnavigation.KalenderFragment"
+        android:label="fragment_kalender"
+        tools:layout="@layout/fragment_kalender" />
+    <fragment
+        android:id="@+id/kontakteFragment"
+        android:name="com.example.kidsnavigation.KontakteFragment"
+        android:label="fragment_kontakte"
+        tools:layout="@layout/fragment_kontakte" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.kidsnavigation.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/hilfeGruppenFragment"
+        android:name="com.example.kidsnavigation.HilfeGruppenFragment"
+        android:label="fragment_hilfe_gruppen"
+        tools:layout="@layout/fragment_hilfe_gruppen" />
+    <fragment
+        android:id="@+id/medikationFragment"
+        android:name="com.example.kidsnavigation.MedikationFragment"
+        android:label="fragment_medikation"
+        tools:layout="@layout/fragment_medikation" />
+    <fragment
+        android:id="@+id/messwertErfassungFragment"
+        android:name="com.example.kidsnavigation.MesswertErfassungFragment"
+        android:label="fragment_messwert_erfassung"
+        tools:layout="@layout/fragment_messwert_erfassung" >
+        <action
+            android:id="@+id/action_messwertErfassungFragment_to_messwertAuswertungFragment"
+            app:destination="@id/messwertAuswertungFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messwertAuswertungFragment"
+        android:name="com.example.kidsnavigation.MesswertAuswertungFragment"
+        android:label="fragment_messwert_auswertung"
+        tools:layout="@layout/fragment_messwert_auswertung" >
+        <action
+            android:id="@+id/action_messwertAuswertungFragment_to_messwertExportFragment"
+            app:destination="@id/messwertExportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messwertExportFragment"
+        android:name="com.example.kidsnavigation.MesswertExportFragment"
+        android:label="fragment_messwert_export"
+        tools:layout="@layout/fragment_messwert_export" />
+</navigation>
