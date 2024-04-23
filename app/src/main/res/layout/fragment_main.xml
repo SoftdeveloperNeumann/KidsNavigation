@@ -17,6 +17,7 @@
         android:layout_marginBottom="8dp"
         android:contentDescription="to medical fragment"
         android:src="@android:drawable/btn_star_big_on"
+        android:tooltipText="zum Medizinischen Bereich"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
