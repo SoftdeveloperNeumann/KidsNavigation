@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/learnFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.LearnFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.learning.LearnFragment"
         android:label="fragment_learn"
         tools:layout="@layout/fragment_learn" >
         <action
@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/parentFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.ParentFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.parent.ParentFragment"
         android:label="fragment_parent"
         tools:layout="@layout/fragment_parent" >
         <action
@@ -62,7 +62,7 @@
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/medicalFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.MedicalFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.medical.MedicalFragment"
         android:label="fragment_medical"
         tools:layout="@layout/fragment_medical" >
         <action
@@ -77,7 +77,7 @@
     </fragment>
     <fragment
         android:id="@+id/socialFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.SocialFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.social.SocialFragment"
         android:label="fragment_social"
         tools:layout="@layout/fragment_social" >
         <action
@@ -92,27 +92,27 @@
     </fragment>
     <fragment
         android:id="@+id/practiceFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.PracticeFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.learning.PracticeFragment"
         android:label="fragment_practice"
         tools:layout="@layout/fragment_practice" />
     <fragment
         android:id="@+id/quizFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.QuizFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.learning.QuizFragment"
         android:label="fragment_quiz"
         tools:layout="@layout/fragment_quiz" />
     <fragment
         android:id="@+id/evaluationFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.EvaluationFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.learning.EvaluationFragment"
         android:label="fragment_evaluation"
         tools:layout="@layout/fragment_evaluation" />
     <fragment
         android:id="@+id/formularFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.FormularFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.parent.FormularFragment"
         android:label="fragment_formular"
         tools:layout="@layout/fragment_formular" />
     <fragment
         android:id="@+id/freizeitFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.FreizeitFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.social.FreizeitFragment"
         android:label="fragment_freizeit"
         tools:layout="@layout/fragment_freizeit" />
     <fragment
@@ -127,22 +127,22 @@
         tools:layout="@layout/fragment_kontakte" />
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.ChatFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.social.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
     <fragment
         android:id="@+id/hilfeGruppenFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.HilfeGruppenFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.social.HilfeGruppenFragment"
         android:label="fragment_hilfe_gruppen"
         tools:layout="@layout/fragment_hilfe_gruppen" />
     <fragment
         android:id="@+id/medikationFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.MedikationFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.medical.MedikationFragment"
         android:label="fragment_medikation"
         tools:layout="@layout/fragment_medikation" />
     <fragment
         android:id="@+id/messwertErfassungFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.MesswertErfassungFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.medical.MesswertErfassungFragment"
         android:label="fragment_messwert_erfassung"
         tools:layout="@layout/fragment_messwert_erfassung" >
         <action
@@ -151,7 +151,7 @@
     </fragment>
     <fragment
         android:id="@+id/messwertAuswertungFragment"
-        android:name="com.example.kidsnavigation.ui.fragment.MesswertAuswertungFragment"
+        android:name="com.example.kidsnavigation.ui.fragment.medical.MesswertAuswertungFragment"
         android:label="fragment_messwert_auswertung"
         tools:layout="@layout/fragment_messwert_auswertung" >
         <action

@@ -1,4 +1,4 @@
-package com.example.kidsnavigation.ui.fragment
+package com.example.kidsnavigation.ui.fragment.medical
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -18,8 +18,8 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-
-class MedikationFragment : Fragment(),TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener{
+class MedikationFragment : Fragment(), TimePickerDialog.OnTimeSetListener,
+    DatePickerDialog.OnDateSetListener {
 
     private lateinit var binding: FragmentMedikationBinding
 
@@ -27,7 +27,7 @@ class MedikationFragment : Fragment(),TimePickerDialog.OnTimeSetListener, DatePi
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentMedikationBinding.inflate(inflater,container,false)
+        binding= FragmentMedikationBinding.inflate(inflater, container, false)
 
 
         binding.etTime.setOnClickListener {
@@ -36,7 +36,7 @@ class MedikationFragment : Fragment(),TimePickerDialog.OnTimeSetListener, DatePi
             val hour = calendar[Calendar.HOUR_OF_DAY]
             val minute = calendar[Calendar.MINUTE]
 
-            val timePickerDialog = TimePickerDialog(this.context,this,hour,minute,true)
+            val timePickerDialog = TimePickerDialog(this.context, this, hour, minute, true)
             timePickerDialog.setMessage("Zeit festlegen")
             timePickerDialog.create()
             timePickerDialog.show()
@@ -60,7 +60,7 @@ class MedikationFragment : Fragment(),TimePickerDialog.OnTimeSetListener, DatePi
         val year=calendar[Calendar.YEAR]
         val month=calendar[Calendar.MONTH]
         val day=calendar[Calendar.DAY_OF_MONTH]
-        val datePickerDialog = DatePickerDialog(this.requireContext(),this,year, month,day)
+        val datePickerDialog = DatePickerDialog(this.requireContext(), this, year, month, day)
         datePickerDialog.setMessage("Datum festlegen")
         datePickerDialog.datePicker.tag= it
         datePickerDialog.create()
@@ -77,7 +77,7 @@ class MedikationFragment : Fragment(),TimePickerDialog.OnTimeSetListener, DatePi
         // mit Date Formatierung auch für SDK < 26
         val date =
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                LocalDate.of(year,month+1,day).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
+                LocalDate.of(year, month + 1, day).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
             }else{
                 val tmpdate = SimpleDateFormat("yyyy-MM-dd").parse("$year-${month-1}-$day")
                 SimpleDateFormat("dd.MM.yyyy", Locale.GERMANY).format(tmpdate)

@@ -1,4 +1,4 @@
-package com.example.kidsnavigation.ui.fragment
+package com.example.kidsnavigation.ui.fragment.social
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +10,10 @@ import com.example.kidsnavigation.R
 
 /**
  * A simple [Fragment] subclass.
- * Use the [FreizeitFragment.newInstance] factory method to
+ * Use the [HilfeGruppenFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class FreizeitFragment : Fragment() {
+class HilfeGruppenFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -25,7 +25,7 @@ class FreizeitFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_freizeit, container, false)
+        return inflater.inflate(R.layout.fragment_hilfe_gruppen, container, false)
     }
 
 

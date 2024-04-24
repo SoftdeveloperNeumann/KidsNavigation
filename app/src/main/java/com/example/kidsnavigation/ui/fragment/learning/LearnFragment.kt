@@ -1,4 +1,4 @@
-package com.example.kidsnavigation.ui.fragment
+package com.example.kidsnavigation.ui.fragment.learning
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +10,10 @@ import com.example.kidsnavigation.R
 
 /**
  * A simple [Fragment] subclass.
- * Use the [FormularFragment.newInstance] factory method to
+ * Use the [LearnFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class FormularFragment : Fragment() {
+class LearnFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -25,7 +25,7 @@ class FormularFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_formular, container, false)
+        return inflater.inflate(R.layout.fragment_learn, container, false)
     }
 
 

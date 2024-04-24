@@ -1,4 +1,4 @@
-package com.example.kidsnavigation.ui.fragment
+package com.example.kidsnavigation.ui.fragment.medical
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,19 +1,14 @@
-package com.example.kidsnavigation.ui.fragment
+package com.example.kidsnavigation.ui.fragment.medical
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-
 import com.example.kidsnavigation.R
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ChatFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ChatFragment : Fragment() {
+
+class MesswertAuswertungFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -21,7 +16,7 @@ class ChatFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat, container, false)
+        return inflater.inflate(R.layout.fragment_messwert_auswertung, container, false)
     }
 
 

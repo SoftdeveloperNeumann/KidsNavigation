@@ -1,4 +1,4 @@
-package com.example.kidsnavigation.ui.fragment
+package com.example.kidsnavigation.ui.fragment.social
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,14 +10,10 @@ import com.example.kidsnavigation.R
 
 /**
  * A simple [Fragment] subclass.
- * Use the [LearnFragment.newInstance] factory method to
+ * Use the [ChatFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class LearnFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
+class ChatFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -25,7 +21,7 @@ class LearnFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_learn, container, false)
+        return inflater.inflate(R.layout.fragment_chat, container, false)
     }
 
 
