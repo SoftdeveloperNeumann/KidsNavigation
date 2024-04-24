@@ -28,6 +28,10 @@ class MainFragment : Fragment() {
         binding.btnToMedicalFragment.setOnClickListener{
             navController.navigate(R.id.action_mainFragment_to_medicalFragment)
         }
+        binding.btnCalendar.setOnClickListener{
+            navController.navigate(R.id.action_mainFragment_to_kalenderFragment)
+        }
+
         // Inflate the layout for this fragment
         return binding.root
     }
