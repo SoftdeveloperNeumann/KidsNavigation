@@ -8,4 +8,6 @@
     <string name="start">start</string>
     <string name="end">end</string>
     <string name="insert">insert</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>

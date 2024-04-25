@@ -21,12 +21,6 @@
         <action
             android:id="@+id/action_mainFragment_to_socialFragment"
             app:destination="@id/socialFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_kalenderFragment"
-            app:destination="@id/kalenderFragment" />
     </fragment>
     <fragment
         android:id="@+id/learnFragment"
@@ -51,9 +45,6 @@
         <action
             android:id="@+id/action_parentFragment_to_formularFragment"
             app:destination="@id/formularFragment" />
-        <action
-            android:id="@+id/action_parentFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -163,4 +154,28 @@
         android:name="com.example.kidsnavigation.ui.fragment.MesswertExportFragment"
         android:label="fragment_messwert_export"
         tools:layout="@layout/fragment_messwert_export" />
+    <action
+        android:id="@+id/action_global_mainFragment"
+        app:destination="@id/mainFragment" />
+    <action
+        android:id="@+id/action_global_learnFragment"
+        app:destination="@id/learnFragment" />
+    <action
+        android:id="@+id/action_global_parentFragment"
+        app:destination="@id/parentFragment" />
+    <action
+        android:id="@+id/action_global_medicalFragment"
+        app:destination="@id/medicalFragment" />
+    <action
+        android:id="@+id/action_global_socialFragment"
+        app:destination="@id/socialFragment" />
+    <action
+        android:id="@+id/action_global_settingsFragment"
+        app:destination="@id/settingsFragment" />
+    <action
+        android:id="@+id/action_global_kontakteFragment"
+        app:destination="@id/kontakteFragment" />
+    <action
+        android:id="@+id/action_global_kalenderFragment"
+        app:destination="@id/kalenderFragment" />
 </navigation>

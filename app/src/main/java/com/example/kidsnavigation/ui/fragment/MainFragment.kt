@@ -11,7 +11,6 @@ import com.example.kidsnavigation.R
 import com.example.kidsnavigation.databinding.FragmentMainBinding
 
 
-
 class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
@@ -22,12 +21,23 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentMainBinding.inflate(inflater,container,false)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
         navController = findNavController()
 
+        binding.btnToLearnFragment.setOnClickListener {
+            navController.navigate(R.id.action_mainFragment_to_learnFragment)
+        }
 
-        binding.btnToMedicalFragment.setOnClickListener{
+        binding.btnToParentFragment.setOnClickListener {
+            navController.navigate(R.id.action_mainFragment_to_parentFragment)
+        }
+
+        binding.btnToMedicalFragment.setOnClickListener {
             navController.navigate(R.id.action_mainFragment_to_medicalFragment)
+        }
+
+        binding.btnToSocialFragment.setOnClickListener {
+            navController.navigate(R.id.action_mainFragment_to_socialFragment)
         }
 
 
