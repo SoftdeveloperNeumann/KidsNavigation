@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/main_group"
+        android:checkableBehavior="single" >
+        <item
+            android:id="@+id/nav_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_learn"
+            android:title="Lernen" />
+        <item
+            android:id="@+id/nav_parents"
+            android:title="Eltern" />
+        <item
+            android:id="@+id/nav_medical"
+            android:title="Gesundheit" />
+        <item
+            android:id="@+id/nav_social"
+            android:title="Soziales" />
+    </group>
+    <item
+        android:id="@+id/nav_parent_area"
+        android:title="Elternbereich" >
+        <menu >
+            <item
+                android:id="@+id/nav_settings"
+                android:title="Einstellungen" />
+            <item
+                android:id="@+id/nav_calendar"
+                android:title="Termine" />
+            <item
+                android:id="@+id/nav_contacts"
+                android:title="Kontakte" />
+        </menu>
+    </item>
+</menu>

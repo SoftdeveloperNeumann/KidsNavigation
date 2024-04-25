@@ -7,31 +7,66 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.MainFragment">
 
-    <ImageButton
-        android:id="@+id/btn_to_medical_fragment"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:contentDescription="to medical fragment"
-        android:scaleType="centerCrop"
-        android:src="@drawable/doc"
-        android:tooltipText="zum Medizinischen Bereich"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btn_calendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginBottom="24dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageButton
+            android:id="@+id/btn_to_learn_fragment"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="to learn fragment"
+            android:scaleType="centerCrop"
+            android:src="@drawable/learn"
+            android:tooltipText="zum Lernen Bereich"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_to_parent_fragment"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="48dp"
+            android:contentDescription="to parent fragment"
+            android:scaleType="centerCrop"
+            android:src="@drawable/eltern"
+            android:tooltipText="zum Eltern Bereich"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_to_learn_fragment" />
+
+        <ImageButton
+            android:id="@+id/btn_to_medical_fragment"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="48dp"
+            android:contentDescription="to medical fragment"
+            android:scaleType="centerCrop"
+            android:src="@drawable/doc"
+            android:tooltipText="zum Medizinischen Bereich"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_to_parent_fragment" />
+
+        <ImageButton
+            android:id="@+id/btn_to_social_fragment"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="48dp"
+            android:contentDescription="to social fragment"
+            android:scaleType="centerCrop"
+            android:src="@drawable/social"
+            android:tooltipText="zum sozialen Bereich"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_to_medical_fragment" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

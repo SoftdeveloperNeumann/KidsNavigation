@@ -14,6 +14,11 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        with(binding.kidsToolbar){
+            title="Kids-App"
+            setSupportActionBar(this)
+        }
+
     }
 
 }
