@@ -83,8 +83,6 @@ class MedikationFragment : Fragment(), TimePickerDialog.OnTimeSetListener,
                 SimpleDateFormat("dd.MM.yyyy", Locale.GERMANY).format(tmpdate)
             }
 
-
-
         tv.text= date //"$day.${month+1}.$year"
     }
 

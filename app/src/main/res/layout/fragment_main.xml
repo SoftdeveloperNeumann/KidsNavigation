@@ -17,7 +17,7 @@
         android:layout_marginBottom="8dp"
         android:contentDescription="to medical fragment"
         android:scaleType="centerCrop"
-        android:src="@drawable/btn_med"
+        android:src="@drawable/doc"
         android:tooltipText="zum Medizinischen Bereich"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
