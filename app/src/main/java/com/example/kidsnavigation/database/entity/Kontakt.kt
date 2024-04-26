@@ -1,4 +1,4 @@
-package com.example.kidsnavigation.database
+package com.example.kidsnavigation.database.entity
 
 class Kontakt(
     val lastname:String,
