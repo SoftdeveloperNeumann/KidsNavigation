@@ -12,28 +12,28 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_date_start" />
+        app:layout_constraintTop_toBottomOf="@+id/et_amount" />
 
     <EditText
         android:id="@+id/et_amount"
-        android:layout_width="48dp"
+        android:layout_width="72dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/dose"
         android:inputType="numberDecimal"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/et_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -44,33 +44,33 @@
         android:hint="@string/medication"
         android:inputType="text"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toStartOf="@+id/et_time"
-        app:layout_constraintStart_toEndOf="@+id/et_amount"
+        app:layout_constraintEnd_toStartOf="@+id/btn_insert_medication"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/et_time"
-        android:layout_width="96dp"
+        android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
         android:background="#95673AB7"
+
         android:clickable="true"
         android:ems="10"
-
         android:gravity="center"
         android:hint="@string/intake_time"
         android:minHeight="48dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#4B4B4B"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/et_amount"
+        app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
     <TextView
         android:id="@+id/et_date_start"
-        android:layout_width="96dp"
+        android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:background="#95673AB7"
         android:clickable="true"
@@ -81,14 +81,14 @@
         android:minHeight="48dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#4B4B4B"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_amount" />
+        app:layout_constraintStart_toEndOf="@+id/et_time"
+        app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
     <TextView
         android:id="@+id/et_date_end"
-        android:layout_width="96dp"
+        android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:background="#95673AB7"
         android:clickable="true"
@@ -103,12 +103,22 @@
         app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
     <Button
-        android:id="@+id/btn_insert"
+        android:id="@+id/btn_insert_medication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/insert"
+        app:layout_constraintBottom_toBottomOf="@+id/et_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_name" />
+        app:layout_constraintTop_toTopOf="@+id/et_name" />
+
+    <Button
+        android:id="@+id/btn_insert_dose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/insert"
+        app:layout_constraintBottom_toBottomOf="@+id/et_date_end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_date_end" />
 </androidx.constraintlayout.widget.ConstraintLayout>

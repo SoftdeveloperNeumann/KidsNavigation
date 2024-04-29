@@ -27,4 +27,8 @@ interface MedikamentDao {
 
     @Query(value = "select * from einnahmezeit join medikament on medikamentId = medikament.id  order by zeit")
     fun getAllMedikamente():LiveData<List<MedikamentMitEinnahmeZeit>>
+
+    @Query("select * from medikament")
+    fun getAllMedics():LiveData<List<Medikament>>
+
 }

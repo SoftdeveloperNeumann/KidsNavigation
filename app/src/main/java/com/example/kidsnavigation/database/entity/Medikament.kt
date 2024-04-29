@@ -28,9 +28,14 @@ data class Einnahmezeit(
     val medikamentId: Long
 ){
     @PrimaryKey(autoGenerate = true) var id: Long=0
+
 }
 
 data class MedikamentMitEinnahmeZeit(
-    @Embedded val einnahmezeit: Einnahmezeit,
-    val name:String
+    @Embedded val medikament: Medikament,
+    val dosis: Double,
+    val zeit: String,
+    val startDatum: String? =null,
+    val endDatum: String? =null,
+    val medikamentId: Long
 )
