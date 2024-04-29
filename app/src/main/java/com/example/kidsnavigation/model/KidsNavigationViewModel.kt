@@ -10,6 +10,7 @@ import com.example.kidsnavigation.repository.KidsNavigationRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 object KidsNavigationViewModel : ViewModel() {
     private var repository: KidsNavigationRepository? = null
@@ -29,6 +30,14 @@ object KidsNavigationViewModel : ViewModel() {
 
     fun getAllMedics(): LiveData<List<Medikament>>? {
         return allMedics
+    }
+
+    suspend fun getMedikament(name:String): Medikament?{
+
+            return withContext(Dispatchers.IO) {
+               repository?.getMedikament(name)
+            }
+
     }
 
     fun insert(einnahmeZeit: Einnahmezeit) {

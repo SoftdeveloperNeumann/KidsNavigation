@@ -13,9 +13,12 @@ import android.widget.DatePicker
 import android.widget.TextView
 import android.widget.TimePicker
 import androidx.fragment.app.Fragment
+import com.example.kidsnavigation.database.entity.Einnahmezeit
 import com.example.kidsnavigation.database.entity.Medikament
 import com.example.kidsnavigation.databinding.FragmentMedikationBinding
 import com.example.kidsnavigation.model.KidsNavigationViewModel
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -74,8 +77,45 @@ class MedikationFragment : Fragment(), TimePickerDialog.OnTimeSetListener,
 
         binding.btnInsertMedication.setOnClickListener {
             val medikamentName = binding.etName.text.toString()
-            if(!liste.contains(medikamentName))
+            if(binding.etName.text.isNotBlank() && !liste.contains(medikamentName)){
                 model.insert(Medikament(medikamentName))
+                binding.etName.text.clear()
+                binding.etName.requestFocus()
+            }
+
+        }
+
+        binding.btnInsertDose.setOnClickListener {
+            MainScope().launch{
+                val medikament = model.getMedikament(binding.etName.text.toString())
+                if(medikament== null){
+                    binding.etName.text.clear()
+                    binding.etName.error= "Bitte ein Medikament eintragen"
+                    binding.etName.requestFocus()
+                    return@launch
+                }
+
+                if(binding.etAmount.text.isBlank()){
+                    binding.etAmount.error= "Bitte Dosierung eintragen"
+                    binding.etAmount.requestFocus()
+                    return@launch
+                }
+
+                if(binding.etTime.text.isBlank()){
+                    binding.etTime.performClick()
+                    return@launch
+                }
+
+                val einnahmezeit = Einnahmezeit(
+                    dosis = binding.etAmount.text.toString().toDouble(),
+                    zeit = binding.etTime.text.toString(),
+                    startDatum = if (binding.etDateStart.text.isNullOrBlank()) null else binding.etDateStart.text.toString(),
+                    endDatum = if (binding.etDateEnd.text.isNullOrBlank()) null else binding.etDateEnd.text.toString(),
+                    medikamentId = medikament.id
+                )
+                model.insert(einnahmezeit)
+            }
+
         }
 
         // Inflate the layout for this fragment

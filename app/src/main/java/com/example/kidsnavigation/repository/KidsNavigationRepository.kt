@@ -28,6 +28,10 @@ class KidsNavigationRepository(app: Application) {
         return allMedics
     }
 
+    fun getMedikament(name:String): Medikament{
+        return medikamentDao.getMedikament(name)
+    }
+
     fun insert(medikament: Medikament) {
         medikamentDao.insertMedikament(medikament)
     }
