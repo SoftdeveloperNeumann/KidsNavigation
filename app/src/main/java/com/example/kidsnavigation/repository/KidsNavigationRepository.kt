@@ -16,7 +16,7 @@ class KidsNavigationRepository(app: Application) {
     init {
         medikamentDao =
             KidsNavigationDatabase.Factory.getInstance(app.applicationContext).medikamentDao()
-        allMedikamentMitEinnahmeZeit = medikamentDao.getAllMedikamente()
+        allMedikamentMitEinnahmeZeit = medikamentDao.getAllMedikamenteMitEinnahmezeit()
         allMedics = medikamentDao.getAllMedics()
     }
 

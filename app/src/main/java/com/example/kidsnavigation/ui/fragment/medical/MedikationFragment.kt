@@ -73,7 +73,9 @@ class MedikationFragment : Fragment(), TimePickerDialog.OnTimeSetListener,
         }
 
         binding.btnInsertMedication.setOnClickListener {
-            model.insert(Medikament(binding.etName.text.toString()))
+            val medikamentName = binding.etName.text.toString()
+            if(!liste.contains(medikamentName))
+                model.insert(Medikament(medikamentName))
         }
 
         // Inflate the layout for this fragment
