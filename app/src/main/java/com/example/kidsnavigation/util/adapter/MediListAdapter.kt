@@ -45,6 +45,13 @@ class MediListAdapter : Adapter<MediListAdapter.ViewHolder>() {
         tvTime.text = currentMedikamentMitEinnahmeZeit.zeit
         tvDose.text = currentMedikamentMitEinnahmeZeit.dosis.toString()
         tvName.text = currentMedikamentMitEinnahmeZeit.medikament.name
+
+        itemView.setOnLongClickListener {
+            if(onItemClickListener!= null){
+                onItemClickListener?.onItemClick(mediList[position])
+            }
+            true
+        }
     }
 
     override fun getItemCount() = mediList.size

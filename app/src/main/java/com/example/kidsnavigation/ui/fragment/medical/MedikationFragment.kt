@@ -12,10 +12,13 @@ import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.TextView
 import android.widget.TimePicker
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kidsnavigation.database.entity.Einnahmezeit
 import com.example.kidsnavigation.database.entity.Medikament
+import com.example.kidsnavigation.database.entity.MedikamentMitEinnahmeZeit
+import com.example.kidsnavigation.databinding.DialogEditMedicationBinding
 import com.example.kidsnavigation.databinding.FragmentMedikationBinding
 import com.example.kidsnavigation.model.KidsNavigationViewModel
 import com.example.kidsnavigation.util.adapter.MediListAdapter
@@ -126,6 +129,37 @@ class MedikationFragment : Fragment(), TimePickerDialog.OnTimeSetListener,
             }
 
         }
+
+        mediAdapter.setOnItemClickListener(object : MediListAdapter.OnItemClickListener {
+            override fun onItemClick(medikament: MedikamentMitEinnahmeZeit) {
+                val dialogBinding = DialogEditMedicationBinding.inflate(inflater,container,false)
+                val dialogView = dialogBinding.root
+                val builder = AlertDialog.Builder(requireActivity())
+                with(dialogBinding){
+                    etTime.text = medikament.zeit
+                    etName.setText(medikament.medikament.name)
+                    etAmount.setText(medikament.dosis.toString())
+                    if(medikament.startDatum != null){
+                        etDateStart.text = medikament.startDatum
+                    }
+                     if(medikament.endDatum != null){
+                        etDateEnd.text = medikament.endDatum
+                    }
+                }
+                if (dialogView.parent != null){
+                    (dialogView.parent as ViewGroup).removeView(dialogView)
+                }
+                builder.setView(dialogView)
+                    .setTitle("Medikation ändern")
+                    .setPositiveButton("Ändern"){dialog,_ ->}
+                    .setNegativeButton("Abbrechen"){dialog,_ ->
+                        dialog.cancel()
+                    }
+                    .setNeutralButton("Löschen"){dialog,_ ->}
+                    .create()
+                    .show()
+            }
+        })
 
         // Inflate the layout for this fragment
         return binding.root

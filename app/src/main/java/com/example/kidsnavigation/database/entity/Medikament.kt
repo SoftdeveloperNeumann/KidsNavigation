@@ -33,6 +33,7 @@ data class Einnahmezeit(
 
 data class MedikamentMitEinnahmeZeit(
     @Embedded val medikament: Medikament,
+    val id:Long,
     val dosis: Double,
     val zeit: String,
     val startDatum: String? =null,
