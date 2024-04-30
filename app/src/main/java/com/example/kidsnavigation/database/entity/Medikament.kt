@@ -10,12 +10,12 @@ data class Medikament(
 
     val name:String,
 ) {
-    @PrimaryKey(autoGenerate = true) var id: Long=0
+    @PrimaryKey(autoGenerate = true) var m_id: Long=0
 }
 
 @Entity(tableName = "einnahmezeit",
         foreignKeys = [ForeignKey(entity = Medikament::class,
-            parentColumns = ["id"],
+            parentColumns = ["m_id"],
             childColumns = ["medikamentId"],
             onDelete = ForeignKey.CASCADE)]
     )

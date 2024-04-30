@@ -25,7 +25,7 @@ interface MedikamentDao {
     @Delete
     fun deleteEinnahmezeit(einnahmezeit: Einnahmezeit)
 
-    @Query(value = "select * from einnahmezeit join medikament on medikamentId = medikament.id  order by zeit")
+    @Query(value = "select * from einnahmezeit join medikament on medikamentId = medikament.m_id  order by zeit")
     fun getAllMedikamenteMitEinnahmezeit(): LiveData<List<MedikamentMitEinnahmeZeit>>
 
     @Query("select * from medikament")

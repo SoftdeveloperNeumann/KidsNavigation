@@ -8,7 +8,7 @@ import com.example.kidsnavigation.database.dao.MedikamentDao
 import com.example.kidsnavigation.database.entity.Einnahmezeit
 import com.example.kidsnavigation.database.entity.Medikament
 
-@Database(entities = [Medikament::class,Einnahmezeit::class], version = 1)
+@Database(entities = [Medikament::class,Einnahmezeit::class], version = 2)
 abstract class KidsNavigationDatabase: RoomDatabase() {
 
     abstract fun medikamentDao(): MedikamentDao

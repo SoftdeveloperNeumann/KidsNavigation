@@ -7,10 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.example.kidsnavigation.database.entity.Einnahmezeit
-import com.example.kidsnavigation.database.entity.Medikament
 import com.example.kidsnavigation.databinding.ActivityMainBinding
-import com.example.kidsnavigation.model.KidsNavigationViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,9 +23,9 @@ class MainActivity : AppCompatActivity() {
 
 
         setContentView(binding.root)
-        val m = Medikament("Aspirin")
-        val z = Einnahmezeit(1.0,"23:00", medikamentId = m.id)
-        val model = KidsNavigationViewModel(application)
+//        val m = Medikament("Aspirin")
+//        val z = Einnahmezeit(1.0,"23:00", medikamentId = m.m_id)
+//        val model = KidsNavigationViewModel(application)
 
         with(binding.kidsToolbar) {
             title = "Kids-App"

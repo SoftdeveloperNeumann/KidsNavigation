@@ -89,7 +89,7 @@ class MedikationFragment : Fragment(), TimePickerDialog.OnTimeSetListener,
 
         binding.btnInsertMedication.setOnClickListener {
             val medikamentName = binding.etName.text.toString()
-            if (binding.etName.text.isNotBlank() && !liste.contains(medikamentName)) {
+            if (binding.etName.text.isNotBlank() && adapter.getPosition(medikamentName)< 0) {
                 model.insert(Medikament(medikamentName))
                 binding.etName.text.clear()
                 binding.etName.requestFocus()
@@ -123,7 +123,7 @@ class MedikationFragment : Fragment(), TimePickerDialog.OnTimeSetListener,
                     zeit = binding.etTime.text.toString(),
                     startDatum = if (binding.etDateStart.text.isNullOrBlank()) null else binding.etDateStart.text.toString(),
                     endDatum = if (binding.etDateEnd.text.isNullOrBlank()) null else binding.etDateEnd.text.toString(),
-                    medikamentId = medikament.id
+                    medikamentId = medikament.m_id
                 )
                 model.insert(einnahmezeit)
             }
@@ -151,11 +151,37 @@ class MedikationFragment : Fragment(), TimePickerDialog.OnTimeSetListener,
                 }
                 builder.setView(dialogView)
                     .setTitle("Medikation ändern")
-                    .setPositiveButton("Ändern"){dialog,_ ->}
+                    .setPositiveButton("Ändern"){dialog,_ ->
+
+                        val upMedikament = Medikament(dialogBinding.etName.text.toString())
+                        upMedikament.m_id =  medikament.medikament.m_id
+
+                        val upEinnahmezeit = Einnahmezeit(
+                            dialogBinding.etAmount.text.toString().toDouble(),
+                            dialogBinding.etTime.text.toString(),
+                            if (dialogBinding.etDateStart.text.isNotBlank())dialogBinding.etDateStart.text.toString() else null,
+                            if (dialogBinding.etDateEnd.text.isNotBlank())dialogBinding.etDateEnd.text.toString() else null,
+                            medikament.medikamentId,
+                        )
+                        upEinnahmezeit.id = medikament.id
+
+                        model.insert(upMedikament)
+                        model.insert(upEinnahmezeit)
+                        dialog.dismiss()
+                    }
                     .setNegativeButton("Abbrechen"){dialog,_ ->
                         dialog.cancel()
                     }
-                    .setNeutralButton("Löschen"){dialog,_ ->}
+                    .setNeutralButton("Löschen"){dialog,_ ->
+                        with(medikament){
+                            val einnahmezeit = Einnahmezeit(
+                                dosis, zeit, startDatum, endDatum, medikamentId
+                            )
+                            einnahmezeit.id = id
+                            model.delete(einnahmezeit)
+                        }
+                        dialog.dismiss()
+                    }
                     .create()
                     .show()
             }
@@ -180,11 +206,11 @@ class MedikationFragment : Fragment(), TimePickerDialog.OnTimeSetListener,
     override fun onTimeSet(view: TimePicker?, hour: Int, minute: Int) {
 
         val time = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            LocalTime.of(hour, minute).format(DateTimeFormatter.ofPattern("hh:mm"))
+            LocalTime.of(hour, minute).format(DateTimeFormatter.ofPattern("HH:mm"))
 
         } else {
             val tmptime = SimpleDateFormat("hh:mm").parse("$hour:$minute")
-            SimpleDateFormat("hh:mm",Locale.GERMANY).format(tmptime)
+            SimpleDateFormat("HH:mm",Locale.GERMANY).format(tmptime)
         }
 
         binding.etTime.text = time
