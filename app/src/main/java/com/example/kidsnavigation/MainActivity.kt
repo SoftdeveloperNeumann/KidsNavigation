@@ -1,5 +1,6 @@
 package com.example.kidsnavigation
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -8,12 +9,19 @@ import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.kidsnavigation.databinding.ActivityMainBinding
+import com.example.kidsnavigation.ui.LoginActivity
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.auth
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var navController: NavController
+    private lateinit var auth: FirebaseAuth
+    private var user: FirebaseUser? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,11 +29,7 @@ class MainActivity : AppCompatActivity() {
         navController =
             (supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment).navController
 
-
         setContentView(binding.root)
-//        val m = Medikament("Aspirin")
-//        val z = Einnahmezeit(1.0,"23:00", medikamentId = m.m_id)
-//        val model = KidsNavigationViewModel(application)
 
         with(binding.kidsToolbar) {
             title = "Kids-App"
@@ -33,6 +37,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        auth = Firebase.auth
+        user = auth.currentUser
+
+        if (user == null){
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
 
         toggle = ActionBarDrawerToggle(this, binding.main, R.string.open, R.string.close)
         binding.main.addDrawerListener(toggle)
