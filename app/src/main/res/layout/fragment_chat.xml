@@ -8,7 +8,7 @@
     tools:context=".ui.fragment.social.ChatFragment" >
 
     <include
-        android:id="@+id/include"
+        android:id="@+id/message_area"
         layout="@layout/layout_message_area"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -20,6 +20,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -27,7 +28,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:contentDescription="zum Scrollen"
-        app:layout_constraintBottom_toTopOf="@+id/include"
+        app:layout_constraintBottom_toTopOf="@+id/message_area"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
