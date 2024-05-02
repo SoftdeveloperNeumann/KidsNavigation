@@ -41,8 +41,8 @@ class ChatFragment : Fragment() {
 
         binding = FragmentChatBinding.inflate(inflater, container, false)
 
-        userName = "child"
-        chatPartner = "parent"
+        userName = "parent"
+        chatPartner = "child"
 
         reference1 = db.getReference("messages/${userName}_$chatPartner")
         reference2 = db.getReference("messages/${chatPartner}_$userName")
@@ -93,23 +93,27 @@ class ChatFragment : Fragment() {
     }
 
     private fun addMessage(message: String, type:Int){
-        val textView = TextView(requireActivity())
-        textView.text = message
-        val layoutParams = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.WRAP_CONTENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
-        )
-        layoutParams.weight = 1f
-        if(type == 1){
-            layoutParams.gravity = Gravity.END
-            textView.setBackgroundResource(R.drawable.bubble_out)
-        }else{
-            layoutParams.gravity = Gravity.START
-            textView.setBackgroundResource(R.drawable.bubble_in)
+        try {
+            val textView = TextView(requireActivity())
+            textView.text = message
+            val layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            layoutParams.weight = 1f
+            if (type == 1) {
+                layoutParams.gravity = Gravity.END
+                textView.setBackgroundResource(R.drawable.bubble_out)
+            } else {
+                layoutParams.gravity = Gravity.START
+                textView.setBackgroundResource(R.drawable.bubble_in)
+            }
+            textView.layoutParams = layoutParams
+            binding.chatContainer.addView(textView)
+            binding.scrollView.fullScroll(View.FOCUS_DOWN)
+        }catch(e : IllegalStateException){
+            return
         }
-        textView.layoutParams = layoutParams
-        binding.chatContainer.addView(textView)
-        binding.scrollView.fullScroll(View.FOCUS_DOWN)
     }
 
 
