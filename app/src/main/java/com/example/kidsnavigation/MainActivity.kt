@@ -2,6 +2,7 @@ package com.example.kidsnavigation
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+        Log.d("TAG", "onCreate: ${user?.isEmailVerified} ")
 
         toggle = ActionBarDrawerToggle(this, binding.main, R.string.open, R.string.close)
         binding.main.addDrawerListener(toggle)
@@ -52,6 +54,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.navView.setNavigationItemSelectedListener {
             when (it.itemId) {
+                R.id.nav_change_user ->{
+                    auth.signOut()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
+                }
+
                 R.id.nav_calendar -> {
                     navController.popBackStack()
                     navController.navigate(R.id.action_global_kalenderFragment)
