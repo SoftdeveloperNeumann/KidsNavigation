@@ -30,6 +30,8 @@ class ChatFragment : Fragment() {
     private lateinit var chatPartner:String
 
     private var db = Firebase.database
+    // Variante 2, wenn Variante 1 nicht funktioniert
+//    private var db = FirebaseDatabase.getInstance("https://kids-navigation-default-rtdb.europe-west1.firebasedatabase.app")
     private lateinit var reference1: DatabaseReference
     private lateinit var reference2: DatabaseReference
 
